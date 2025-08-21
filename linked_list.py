@@ -103,6 +103,13 @@
 
 # reorder list
 
+# The code reorders a singly linked list into the pattern `L0 → Ln → L1 → Ln-1 → L2 → Ln-2 …`. It first finds the 
+# middle of the list using slow and fast pointers, where `slow` ends at the midpoint. Then it splits the list into two halves
+# and reverses the second half. Finally, it merges the two halves by alternating nodes from the first half and the reversed 
+# second half, weaving them together into the required reordered structure.
+
+# time - O(n), where n is the number of nodes. space - O(1)
+
 # reverse and merge:
 # # Definition for singly-linked list.
 # # class ListNode:
