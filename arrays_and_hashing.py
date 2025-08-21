@@ -29,11 +29,15 @@
 #             hashset.add(num)
 #         return False
 
+
+
+
+
 # day 2
 
 # valid anagram (same letters of a word but diff order)
 
-# my solutuion (correct for test cases, but not all):def isAnagram(self, s: str, t: str) -> bool:
+# my solutuion (correct for test cases, but not all): def isAnagram(self, s: str, t: str) -> bool:
 #         for i in range(len(s)):
 #             if s[i] not in t:
 #                 return False
@@ -93,38 +97,38 @@
 #             res[tuple(count)].append(s) # we change it to a tuple here as in python, lists cannot be keys as they are mutable
 #         return list(res.values())
 
-# # ai explanation:
+# ai explanation:
 
-# # Code Breakdown:
-# # 1. res = defaultdict(list):
-# #     * This line initializes a defaultdict named res.
-# #     * The key aspect here is list as the default factory. As explained by LabEx, when you try to access a key in res that doesn't exist, it will automatically create a new empty list ([]) as the value for that key instead of raising a KeyError. This simplifies the grouping process considerably.
-# # 2. for s in strs::
-# #     * The code iterates through each string s in the input list strs.
-# # 3. count = [0] * 26:
-# #     * For each string s, a list called count is initialized.
-# #     * It contains 26 zeros, one for each lowercase English letter (a-z).
-# #     * This list will be used to store the frequency of each character in the current string s.
-# # 4. for c in s::
-# #     * This nested loop iterates through each character c within the current string s.
-# # 5. count[ord(c) - ord('a')] += 1:
-# #     * This is where the character frequency counting happens.
-# #     * ord(c) returns the ASCII (numerical) value of the character c. For example, ord('a') is 97, ord('b') is 98, and so on.
-# #     * ord(c) - ord('a') calculates the offset of the character c from 'a'. For example, if c is 'b', ord('b') - ord('a') will be 1, so count[1] will be incremented.
-# #     * This way, count[0] stores the frequency of 'a', count[1] stores the frequency of 'b', and so on.
-# # 6. res[tuple(count)].append(s):
-# #     * This is the crucial step for grouping.
-# #     * tuple(count): The count list (which stores character frequencies) is converted into a tuple. As stated by Stack Overflow, lists are mutable and thus cannot be used directly as dictionary keys in Python. Tuples, however, are immutable and hashable, making them suitable for use as keys.
-# #     * res[tuple(count)]: This uses the character frequency tuple as the key in the res defaultdict. If this key doesn't exist, defaultdict automatically creates a new empty list as its value.
-# #     * .append(s): The original string s is then appended to the list associated with that specific character frequency tuple. All anagrams will have the same character frequency tuple and therefore will be grouped together in the same list.
-# # 7. return list(res.values()):
-# #     * Finally, the code returns a list containing all the values from the res defaultdict. Each value is a list of strings that are anagrams of each other. 
+# Code Breakdown:
+# 1. res = defaultdict(list):
+#     * This line initializes a defaultdict named res.
+#     * The key aspect here is list as the default factory. As explained by LabEx, when you try to access a key in res that doesn't exist, it will automatically create a new empty list ([]) as the value for that key instead of raising a KeyError. This simplifies the grouping process considerably.
+# 2. for s in strs::
+#     * The code iterates through each string s in the input list strs.
+# 3. count = [0] * 26:
+#     * For each string s, a list called count is initialized.
+#     * It contains 26 zeros, one for each lowercase English letter (a-z).
+#     * This list will be used to store the frequency of each character in the current string s.
+# 4. for c in s::
+#     * This nested loop iterates through each character c within the current string s.
+# 5. count[ord(c) - ord('a')] += 1:
+#     * This is where the character frequency counting happens.
+#     * ord(c) returns the ASCII (numerical) value of the character c. For example, ord('a') is 97, ord('b') is 98, and so on.
+#     * ord(c) - ord('a') calculates the offset of the character c from 'a'. For example, if c is 'b', ord('b') - ord('a') will be 1, so count[1] will be incremented.
+#     * This way, count[0] stores the frequency of 'a', count[1] stores the frequency of 'b', and so on.
+# 6. res[tuple(count)].append(s):
+#     * This is the crucial step for grouping.
+#     * tuple(count): The count list (which stores character frequencies) is converted into a tuple. As stated by Stack Overflow, lists are mutable and thus cannot be used directly as dictionary keys in Python. Tuples, however, are immutable and hashable, making them suitable for use as keys.
+#     * res[tuple(count)]: This uses the character frequency tuple as the key in the res defaultdict. If this key doesn't exist, defaultdict automatically creates a new empty list as its value.
+#     * .append(s): The original string s is then appended to the list associated with that specific character frequency tuple. All anagrams will have the same character frequency tuple and therefore will be grouped together in the same list.
+# 7. return list(res.values()):
+#     * Finally, the code returns a list containing all the values from the res defaultdict. Each value is a list of strings that are anagrams of each other. 
 
-# # day 4
+# day 4
 
-# # top k frequent elements
+# top k frequent elements
 
-# my solution(solved one of the test cases):class Solution:
+# my solution(solved one of the test cases):  class Solution:
 #     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
 #         count = {}
 #         result = []
@@ -137,8 +141,7 @@
 #                     result.append(num)
 #         return result
 
-# solution: Use the bucket sort algorithm to create n buckets, grouping numbers based on their frequencies 
-# from 1 to n. Then, pick the top k numbers from the buckets, starting from n down to 1.
+# solution: Use the bucket sort algorithm to create n buckets, grouping numbers based on their frequencies from 1 to n. Then, pick the top k numbers from the buckets, starting from n down to 1.
 
 
 # class Solution:
@@ -175,10 +178,7 @@
 #         return res
 
 
-# solution: We can use an encoding approach where we start with a number representing the length of the string, 
-# followed by a separator character (let's use # for simplicity), and then the string itself. 
-# To decode, we read the number until we reach a #, then use that number to read the specified number of 
-# characters as the string.
+# solution: We can use an encoding approach where we start with a number representing the length of the string, followed by a separator character (let's use # for simplicity), and then the string itself. To decode, we read the number until we reach a #, then use that number to read the specified number of characters as the string.
 
 #  # example: [“abbu”, “ammu”] would encode to ‘4#abbu4#ammu’, where the integer is the length of that string
 
@@ -202,8 +202,7 @@
 #             i = j + 1 + length
 #         return res
 
-# time complexity: O(m) for each encode () and decode() functuon calls, m is the length of all the strings 
-# and n is the number of strings
+# time complexity: O(m) for each encode () and decode() functuon calls, m is the length of all the strings and n is the number of strings
 # spcace complexity: O(m + n) for each encode() and decode() function calls
 
 # day 6
@@ -212,11 +211,9 @@
 
 # couldnt solve this
 
-# solution:We can use the stored prefix and suffix products to compute the result array by iterating through the array 
-# and simply multiplying the prefix and suffix products at each index.
+# solution: We can use the stored prefix and suffix products to compute the result array by iterating through the array and simply multiplying the prefix and suffix products at each index.
 
-# time and space complexity: O(n) (O(1) space complexity if the extra array doesnt count for extra space). 
-# here x= is *=
+# time and space complexity: O(n) (O(1) space complexity if the extra array doesnt count for extra space). here x= is *=
 
 # class Solution:
 #     def productExceptSelf(self, nums: List[int]) -> List[int]:
@@ -238,10 +235,8 @@
 
 # couldnt solve it
 
-# solution:
-# We can consider a number num as the start of a sequence if and only if num - 1 does not exist in the given array. 
-# We iterate through the array and only start building the sequence if it is the start of a sequence. 
-# This avoids repeated work. We can use a hash set for O(1) lookups by converting the array to a hash set.
+# solution: 
+# We can consider a number num as the start of a sequence if and only if num - 1 does not exist in the given array. We iterate through the array and only start building the sequence if it is the start of a sequence. This avoids repeated work. We can use a hash set for O(1) lookups by converting the array to a hash set.
 
 # class Solution:
 #     def longestConsecutive(self, nums: List[int]) -> int:
