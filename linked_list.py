@@ -138,3 +138,19 @@
 #             first.next = second
 #             second.next = tmp1
 #             first, second = tmp1, tmp2
+
+
+# day 21
+
+# remove nth Node from end of linked list
+
+# solution:
+
+# time - O(N)
+# space - O(1)
+
+# two pointer approach:  # Definition for singly-linked list.
+# # class ListNode:
+# #     def __init__(self, val=0, next=None):
+# #         self.val = val
+# #         self.next = next
