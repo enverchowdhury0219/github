@@ -215,6 +215,6 @@
 #         if l2:
 #             tail.next = l2
 
-#         return dummy.next
+#         return dummy.next   # this is so that dummy.next is the actual head of the list we want
 
 
