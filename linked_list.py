@@ -210,11 +210,3 @@
 #                 l2 = l2.next
 #             tail = tail.next
 
-#         if l1:
-#             tail.next = l1
-#         if l2:
-#             tail.next = l2
-
-#         return dummy.next   # this is so that dummy.next is the actual head of the list we want
-
-
